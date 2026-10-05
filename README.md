@@ -1,10 +1,10 @@
 @and(
   greaterOrEquals(
-    ticks(item()?['Date']),
+    ticks(item()?['Leave_Date']),
     ticks(startOfWeek(utcNow()))
   ),
   less(
-    ticks(item()?['Date']),
+    ticks(item()?['Leave_Date']),
     ticks(addDays(startOfWeek(utcNow()),7))
   )
 )
