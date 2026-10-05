@@ -1,10 +1,10 @@
 @and(
-  greaterOrEquals(
-    ticks(item()?['Leave_Date']),
-    ticks(startOfWeek(utcNow()))
-  ),
-  less(
-    ticks(item()?['Leave_Date']),
-    ticks(addDays(startOfWeek(utcNow()),7))
-  )
+    greaterOrEquals(
+        ticks(formatDateTime(item()?['Leave_Date'],'yyyy-MM-dd')),
+        ticks(formatDateTime(addDays(utcNow(),sub(1,dayOfWeek(utcNow()))),'yyyy-MM-dd'))
+    ),
+    less(
+        ticks(formatDateTime(item()?['Leave_Date'],'yyyy-MM-dd')),
+        ticks(formatDateTime(addDays(addDays(utcNow(),sub(1,dayOfWeek(utcNow()))),7),'yyyy-MM-dd'))
+    )
 )
