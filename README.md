@@ -1,0 +1,10 @@
+@and(
+  greaterOrEquals(
+    ticks(item()?['Date']),
+    ticks(startOfWeek(utcNow()))
+  ),
+  less(
+    ticks(item()?['Date']),
+    ticks(addDays(startOfWeek(utcNow()),7))
+  )
+)
